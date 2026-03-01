@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Đại Bi Tâm Đà La Ni - Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà Ra Ni" />
+  <meta name="theme-color"
+    content="#0c0504" />
+  <meta name="apple-mobile-web-app-capable"
+    content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta name="apple-mobile-web-app-title"
+    content="Chú Đại Bi" />
+  <link rel="manifest"
+    href="manifest.json" />
+  <link rel="apple-touch-icon"
+    href="icon.svg" />
+  <title>Chú Đại Bi</title>
+  <style>
+    /* ── Variables ─────────────────────────────────────────────── */
+    :root {
+      --bg: #0c0504;
+      --bg-card: #160908;
+      --bg-card-alt: #1e0e0b;
+      --border: #4a1a0a;
+      --border-hi: #7c2d0e;
+      --gold: #d4a843;
+      --gold-bright: #f0c842;
+      --gold-dim: #8b6030;
+      --gold-pale: #e8d88a;
+      --num: #5a3520;
+      --red: #8b1a0a;
+      --shadow: rgba(0, 0, 0, .7);
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Base ──────────────────────────────────────────────────── */
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--gold);
+      font-family: Georgia, 'Noto Serif', 'Times New Roman', serif;
+      min-height: 100vh;
+      line-height: 1.9;
+    }
+
+    /* ── Header ────────────────────────────────────────────────── */
+    header {
+      text-align: center;
+      padding: clamp(2rem, 8vw, 4rem) 1.5rem clamp(2rem, 6vw, 3rem);
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, #3d1208 0%, transparent 70%),
+        var(--bg);
+      border-bottom: 1px solid var(--border-hi);
+      position: relative;
+    }
+
+    .lotus-icon {
+      width: clamp(56px, 12vw, 80px);
+      height: clamp(56px, 12vw, 80px);
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(0 0 12px rgba(208, 160, 50, .4));
+    }
+
+    .header-label {
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 9vw, 3.8rem);
+      color: var(--gold-bright);
+      letter-spacing: .06em;
+      font-weight: normal;
+      text-shadow: 0 0 30px rgba(240, 200, 66, .35);
+      line-height: 1.15;
+    }
+
+    .header-sub {
+      font-size: clamp(0.78rem, 2.8vw, 1rem);
+      color: var(--gold-dim);
+      margin-top: 0.8rem;
+      font-style: italic;
+      letter-spacing: .04em;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
+      max-width: 260px;
+      color: var(--border-hi);
+      font-size: 1rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-hi), transparent);
+    }
+
+    /* ── Main ──────────────────────────────────────────────────── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.75rem, 4vw, 1.5rem) 5rem;
+    }
+
+    /* ── Section (stanza group) ────────────────────────────────── */
+    .section {
+      margin-bottom: clamp(1rem, 3vw, 1.6rem);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border-hi);
+      border-radius: 0 8px 8px 0;
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(0.8rem, 3vw, 1.4rem);
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: border-left-color .2s;
+    }
+
+    .section:hover {
+      border-left-color: var(--gold-dim);
+    }
+
+    /* ── Line ──────────────────────────────────────────────────── */
+    .line {
+      display: flex;
+      align-items: baseline;
+      gap: clamp(0.6rem, 2vw, 1rem);
+      padding: 0.1rem 0;
+    }
+
+    .num {
+      min-width: clamp(1.8rem, 5vw, 2.4rem);
+      color: var(--num);
+      font-size: clamp(0.65rem, 2vw, 0.78rem);
+      text-align: right;
+      user-select: none;
+      flex-shrink: 0;
+      padding-top: 0.15em;
+    }
+
+    .text {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      letter-spacing: .02em;
+    }
+
+    /* ── Text variants ─────────────────────────────────────────── */
+    .nam-mo {
+      color: var(--gold-bright);
+      font-weight: bold;
+    }
+
+    .an {
+      color: var(--gold-bright);
+      font-weight: bold;
+    }
+
+    .ta-ba-ha {
+      color: var(--gold-pale);
+      font-style: italic;
+      padding-left: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    /* ── Section heading label ─────────────────────────────────── */
+    .section-num {
+      font-size: 0.65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--border-hi);
+      margin-bottom: 0.6rem;
+      display: block;
+      user-select: none;
+    }
+
+    /* ── Ta Bà Ha final section ─────────────────────────────────── */
+    .section-tabaha {
+      background: var(--bg-card-alt);
+      border-left-color: var(--gold-dim);
+    }
+
+    .section-tabaha .line {
+      padding: 0.2rem 0;
+    }
+
+    /* ── Scroll-to-top ─────────────────────────────────────────── */
+    #top-btn {
+      position: fixed;
+      bottom: clamp(1.2rem, 4vw, 2rem);
+      right: clamp(1rem, 4vw, 1.8rem);
+      width: clamp(40px, 8vw, 52px);
+      height: clamp(40px, 8vw, 52px);
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-hi);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s, visibility .3s, background .2s;
+      z-index: 100;
+      text-decoration: none;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    #top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #top-btn:hover {
+      background: var(--border);
+    }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: var(--num);
+      font-size: 0.75rem;
+      letter-spacing: .06em;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .lotus-small {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Print ─────────────────────────────────────────────────── */
+    @media print {
+      body {
+        background: white;
+        color: #222;
+      }
+
+      header {
+        background: white;
+        border-bottom: 1px solid #aaa;
+      }
+
+      h1 {
+        color: #222;
+        text-shadow: none;
+      }
+
+      .header-label,
+      .header-sub {
+        color: #555;
+      }
+
+      .section {
+        background: white;
+        border: 1px solid #ddd;
+        border-left: 3px solid #999;
+        box-shadow: none;
+      }
+
+      .num {
+        color: #bbb;
+      }
+
+      .nam-mo,
+      .an {
+        color: #111;
+      }
+
+      .ta-ba-ha {
+        color: #444;
+      }
+
+      #top-btn {
+        display: none;
+      }
+
+      .divider {
+        color: #ccc;
+      }
+    }
+
+    /* ── Reduced motion ────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      #top-btn {
+        transition: none;
+      }
+
+      .section {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────── -->
+  <header id="top">
+    <img src="icon.svg"
+      alt="Hoa Sen"
+      class="lotus-icon"
+      width="80"
+      height="80" />
+    <p class="header-label">Đại Bi Tâm Đà La Ni</p>
+    <h1>Chú Đại Bi</h1>
+    <p class="header-sub">Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà Ra Ni</p>
+    <div class="divider">✦</div>
+  </header>
+
+  <!-- ── Main ────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Section 1: Mở đầu (1–3) -->
+    <div class="section">
+      <span class="section-num">I</span>
+      <div class="line"><span class="num">1</span><span class="text">Thiên thủ thiên nhãn</span></div>
+      <div class="line"><span class="num">2</span><span class="text">vô ngại đại bi</span></div>
+      <div class="line"><span class="num">3</span><span class="text">tâm đà ra ni.</span></div>
+    </div>
+
+    <!-- Section 2: Nam mô hắc ra (4–6) -->
+    <div class="section">
+      <span class="section-num">II</span>
+      <div class="line"><span class="num">4</span><span class="text nam-mo">Nam mô hắc ra</span></div>
+      <div class="line"><span class="num">5</span><span class="text">đát na đa</span></div>
+      <div class="line"><span class="num">6</span><span class="text">ra dạ da</span></div>
+    </div>
+
+    <!-- Section 3: Nam mô a rị da (7–12) -->
+    <div class="section">
+      <span class="section-num">III</span>
+      <div class="line"><span class="num">7</span><span class="text nam-mo">Nam mô a rị da,</span></div>
+      <div class="line"><span class="num">8</span><span class="text">bà lô yết đế</span></div>
+      <div class="line"><span class="num">9</span><span class="text">thước bát ra da,</span></div>
+      <div class="line"><span class="num">10</span><span class="text">bồ đề tát đỏa bà da,</span></div>
+      <div class="line"><span class="num">11</span><span class="text">ma ha tát đỏa bà ha,</span></div>
+      <div class="line"><span class="num">12</span><span class="text">ma ha ca rô ni ca da.</span></div>
+    </div>
+
+    <!-- Section 4: Án đầu (13–14) -->
+    <div class="section">
+      <span class="section-num">IV</span>
+      <div class="line"><span class="num">13</span><span class="text an">Án, tát bà ra phạt duệ,</span></div>
+      <div class="line"><span class="num">14</span><span class="text">số đát na đát tả</span></div>
+    </div>
+
+    <!-- Section 5: Nam mô tất kiết (15–18) -->
+    <div class="section">
+      <span class="section-num">V</span>
+      <div class="line"><span class="num">15</span><span class="text nam-mo">Nam mô tất kiết</span></div>
+      <div class="line"><span class="num">16</span><span class="text">lật đả y mông a rị da,</span></div>
+      <div class="line"><span class="num">17</span><span class="text">bà lô kiết đế</span></div>
+      <div class="line"><span class="num">18</span><span class="text">thất Phật ra lăng đà bà.</span></div>
+    </div>
+
+    <!-- Section 6: Nam mô na ra + thân (19–27) -->
+    <div class="section">
+      <span class="section-num">VI</span>
+      <div class="line"><span class="num">19</span><span class="text nam-mo">Nam mô na ra cẩn trì,</span></div>
+      <div class="line"><span class="num">20</span><span class="text">hê rị ma ha</span></div>
+      <div class="line"><span class="num">21</span><span class="text">bàn đa sa mế,</span></div>
+      <div class="line"><span class="num">22</span><span class="text">Tát bà a tha đậu du bằng,</span></div>
+      <div class="line"><span class="num">23</span><span class="text">a thệ dựng,</span></div>
+      <div class="line"><span class="num">24</span><span class="text">tát bà tát đa,</span></div>
+      <div class="line"><span class="num">25</span><span class="text">na ma bà dà,</span></div>
+      <div class="line"><span class="num">26</span><span class="text">ma phạt đạt đậu</span></div>
+      <div class="line"><span class="num">27</span><span class="text">đát điệt tha,</span></div>
+    </div>
+
+    <!-- Section 7: Án a bà lô hê (28–29) -->
+    <div class="section">
+      <span class="section-num">VII</span>
+      <div class="line"><span class="num">28</span><span class="text an">Án a bà lô hê, lô ca đế,</span></div>
+      <div class="line"><span class="num">29</span><span class="text">ca ra đế, di hê rị.</span></div>
+    </div>
+
+    <!-- Section 8: Ma ha bồ đề → phật ra xá da (30–45) -->
+    <div class="section">
+      <span class="section-num">VIII</span>
+      <div class="line"><span class="num">30</span><span class="text">Ma ha bồ đề tát đỏa,</span></div>
+      <div class="line"><span class="num">31</span><span class="text">tát bà tát bà,</span></div>
+      <div class="line"><span class="num">32</span><span class="text">ma ra ma ra,</span></div>
+      <div class="line"><span class="num">33</span><span class="text">Ma hê ma hê rị đà dựng,</span></div>
+      <div class="line"><span class="num">34</span><span class="text">cu lô cu lô yết mông,</span></div>
+      <div class="line"><span class="num">35</span><span class="text">độ lô độ lô phạt xà da đế,</span></div>
+      <div class="line"><span class="num">36</span><span class="text">ma ha phạt xà da đế,</span></div>
+      <div class="line"><span class="num">37</span><span class="text">đà ra đà ra,</span></div>
+      <div class="line"><span class="num">38</span><span class="text">địa rị ni,</span></div>
+      <div class="line"><span class="num">39</span><span class="text">thất phật ra da,</span></div>
+      <div class="line"><span class="num">40</span><span class="text">dá ra dá ra,</span></div>
+      <div class="line"><span class="num">41</span><span class="text">mục đế lệ, y hê y hê,</span></div>
+      <div class="line"><span class="num">42</span><span class="text">thất na thất na,</span></div>
+      <div class="line"><span class="num">43</span><span class="text">a ra sâm phật ra xá lợi,</span></div>
+      <div class="line"><span class="num">44</span><span class="text">phạt sa phạt sâm</span></div>
+      <div class="line"><span class="num">45</span><span class="text">phật ra xá da.</span></div>
+    </div>
+
+    <!-- Section 9: Hô lô → ba dạ ma na (46–56) -->
+    <div class="section">
+      <span class="section-num">IX</span>
+      <div class="line"><span class="num">46</span><span class="text">Hô lô hô lô ma ra,</span></div>
+      <div class="line"><span class="num">47</span><span class="text">hô lô hô lô hê rị,</span></div>
+      <div class="line"><span class="num">48</span><span class="text">ta ra ta ra,</span></div>
+      <div class="line"><span class="num">49</span><span class="text">tất rị tất rị,</span></div>
+      <div class="line"><span class="num">50</span><span class="text">tô rô tô rô,</span></div>
+      <div class="line"><span class="num">51</span><span class="text">bồ đề dạ bồ đề dạ,</span></div>
+      <div class="line"><span class="num">52</span><span class="text">bồ đà dạ bồ đà dạ,</span></div>
+      <div class="line"><span class="num">53</span><span class="text">di đế rị dạ,</span></div>
+      <div class="line"><span class="num">54</span><span class="text">na ra cẩn trì,</span></div>
+      <div class="line"><span class="num">55</span><span class="text">địa rị sắc ni na,</span></div>
+      <div class="line"><span class="num">56</span><span class="text">ba dạ ma na</span></div>
+    </div>
+
+    <!-- Section 10: Ta Bà Ha series (57–85) -->
+    <div class="section section-tabaha">
+      <span class="section-num">X</span>
+      <div class="line"><span class="num">57</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">58</span><span class="text">Tất đà dạ,</span></div>
+      <div class="line"><span class="num">59</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">60</span><span class="text">Ma ha tất đà dạ,</span></div>
+      <div class="line"><span class="num">61</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">62</span><span class="text">Tất đà du nghệ,</span></div>
+      <div class="line"><span class="num">63</span><span class="text">thất bàn ra dạ,</span></div>
+      <div class="line"><span class="num">64</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">65</span><span class="text">Na ra cẩn trì,</span></div>
+      <div class="line"><span class="num">66</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">67</span><span class="text">Ma ra na ra,</span></div>
+      <div class="line"><span class="num">68</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">69</span><span class="text">Tất ra tăng a mục khê da,</span></div>
+      <div class="line"><span class="num">70</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">71</span><span class="text">Ba đà ma yết tất đà dạ,</span></div>
+      <div class="line"><span class="num">72</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">73</span><span class="text">Na ra cẩn trì,</span></div>
+      <div class="line"><span class="num">74</span><span class="text">bàn già ra da,</span></div>
+      <div class="line"><span class="num">75</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">76</span><span class="text">Ma bà lợi thắng yết ra dạ,</span></div>
+      <div class="line"><span class="num">77</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">78</span><span class="text nam-mo">Nam mô hắc ra</span></div>
+      <div class="line"><span class="num">79</span><span class="text">đát na đa ra dạ da,</span></div>
+      <div class="line"><span class="num">80</span><span class="text nam-mo">nam mô a rị da,</span></div>
+      <div class="line"><span class="num">81</span><span class="text nam-mo">bà lô kiết đế,</span></div>
+      <div class="line"><span class="num">82</span><span class="text">thước bàn ra dạ,</span></div>
+      <div class="line"><span class="num">83</span><span class="text ta-ba-ha">ta bà ha</span></div>
+      <div class="line"><span class="num">84</span><span class="text an">Án tất điện đô,</span></div>
+      <div class="line"><span class="num">85</span><span class="text">mạn đa ra,</span></div>
+      <div class="line"><span class="num">86</span><span class="text">bạt dà da,</span></div>
+      <div class="line"><span class="num">87</span><span class="text ta-ba-ha">ta bà ha</span></div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <span class="lotus-small">☸</span>
+    Nam Mô Đại Bi Quán Thế Âm Bồ Tát
+  </footer>
+
+  <!-- ── Scroll-to-top ─────────────────────────────────────────────── -->
+  <a href="#top"
+    id="top-btn"
+    aria-label="Lên đầu trang">▲</a>
+
+  <script>
+    /* Scroll-to-top visibility */
+    (function () {
+      var btn = document.getElementById('top-btn');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+      }, { passive: true });
+    })();
+
+    /* Register service worker */
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+
+</body>
+
+</html>

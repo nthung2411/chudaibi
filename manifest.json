@@ -1,0 +1,19 @@
+{
+  "name": "Chú Đại Bi",
+  "short_name": "Chú Đại Bi",
+  "description": "Đại Bi Tâm Đà La Ni - Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà Ra Ni",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0c0504",
+  "theme_color": "#0c0504",
+  "lang": "vi",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
