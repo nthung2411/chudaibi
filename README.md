@@ -4,6 +4,9 @@ Trang web PWA hiển thị bài kinh **Chú Đại Bi** (Đại Bi Tâm Đà La 
 
 ---
 
+## Github Pages
+https://nthung2411.github.io/chudaibi
+
 ## Tính năng
 
 - **PWA** — Cài được lên màn hình chính (Add to Home Screen), hoạt động offline
